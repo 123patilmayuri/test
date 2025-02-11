@@ -16,3 +16,18 @@ tag v1.0.0	1.0.0	my-app-1.0.0.jar
 ✅ No unnecessary rebuilds on main – avoids mismatches.
 ✅ Ensures traceability – all builds are tracked by CI_PIPELINE_ID.
 ✅ Repository-driven promotion – handled via Nexus/Artifactory API.
+
+
+
+Lambda ---
+Recommended Approach
+There are two main approaches depending on whether you want manual coordination or a fully automated workflow.
+
+🔹 Option 1: Independent Deployment (Recommended)
+✅ Infrastructure & application code can be deployed independently.
+✅ Application updates do not require an Infra pipeline run.
+✅ More control over versioning & rollback.
+
+🔹 Option 2: Automated Deployment Trigger
+✅ Infra pipeline triggers the latest application build.
+✅ Ensures infra changes always deploy the latest application.
