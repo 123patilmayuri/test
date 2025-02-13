@@ -31,3 +31,8 @@ There are two main approaches depending on whether you want manual coordination 
 🔹 Option 2: Automated Deployment Trigger
 ✅ Infra pipeline triggers the latest application build.
 ✅ Ensures infra changes always deploy the latest application.
+
+
+ aws servicecatalog search-products --query "ProductViewSummaries[?Name=='<PRODUCT_NAME>'].ProductId" --output text
+aws servicecatalog describe-product --id <PRODUCT_ID>
+
