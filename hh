@@ -36,3 +36,4 @@ There are two main approaches depending on whether you want manual coordination 
  aws servicecatalog search-products --query "ProductViewSummaries[?Name=='<PRODUCT_NAME>'].ProductId" --output text
 aws servicecatalog describe-product --id <PRODUCT_ID>
 
+ grep "version:" metadata.yaml | awk '{print $2}'
