@@ -44,3 +44,8 @@ grep "version:" metadata.yaml | cut -d':' -f2 | tr -d ' '
  LATEST_SNAPSHOT=$(curl -s -u user:password \
   "http://<NEXUS_URL>/service/rest/v1/search?repository=<REPOSITORY>&group=<GROUP_ID>&name=<ARTIFACT_ID>&version=1.0-SNAPSHOT" | 
   jq -r '.items[0].assets[0].downloadUrl')
+
+
+curl -s -u admin:admin123 "http://nexus.example.com/service/rest/v1/search?repository=maven-releases&group=com.example&name=my-app&sort=version&direction=desc" \
+| jq -r '.items[0].assets[0].downloadUrl' \
+| xargs curl -o my-app-latest.jar -u admin:admin123
