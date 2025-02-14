@@ -38,3 +38,4 @@ aws servicecatalog describe-product --id <PRODUCT_ID>
 
  grep "version:" metadata.yaml | awk '{print $2}'
  awk -F': ' '/^version:/ {print $2}' metadata.yaml
+grep "version:" metadata.yaml | cut -d':' -f2 | tr -d ' '
