@@ -39,3 +39,8 @@ aws servicecatalog describe-product --id <PRODUCT_ID>
  grep "version:" metadata.yaml | awk '{print $2}'
  awk -F': ' '/^version:/ {print $2}' metadata.yaml
 grep "version:" metadata.yaml | cut -d':' -f2 | tr -d ' '
+
+
+ LATEST_SNAPSHOT=$(curl -s -u user:password \
+  "http://<NEXUS_URL>/service/rest/v1/search?repository=<REPOSITORY>&group=<GROUP_ID>&name=<ARTIFACT_ID>&version=1.0-SNAPSHOT" | 
+  jq -r '.items[0].assets[0].downloadUrl')
