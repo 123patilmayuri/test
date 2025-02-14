@@ -37,3 +37,4 @@ There are two main approaches depending on whether you want manual coordination 
 aws servicecatalog describe-product --id <PRODUCT_ID>
 
  grep "version:" metadata.yaml | awk '{print $2}'
+ awk -F': ' '/^version:/ {print $2}' metadata.yaml
